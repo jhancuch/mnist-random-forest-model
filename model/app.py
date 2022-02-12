@@ -18,11 +18,8 @@ app = Flask(__name__)
 @app.route("/score", methods=["POST", "GET"])
 def predict_species():
     # create list and append inputs
-    flower = []
-    flower.append(request.args.get("petal_length"))
-    flower.append(request.args.get("petal_width"))
-    flower.append(request.args.get("sepal_length"))
-    flower.append(request.args.get("sepal_width"))
+    mnist_vector = []
+    flower.append(request.args.get("mnist_vector"))
 
     # return the prediction
     return array2string(unpickled_rf.predict([digits]))
